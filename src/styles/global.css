@@ -10,17 +10,6 @@
     --hovered-orange: #ff8811;
 }
 
-h2 {
-    font-size: 5rem;
-    font-weight: bolder;
-    color: var(--main-orange);
-    cursor: pointer;
-}
-
-h2:hover {
-    color: #888888;
-}
-
 ::-webkit-scrollbar {
   width: 6px; 
 }
@@ -39,3 +28,18 @@ h2:hover {
   background: #909090; 
 }
 
+.project {
+    font-size: 6rem;
+    font-weight: bold;
+    color: var(--main-orange);
+    cursor: pointer;
+    transition: all 100ms ease-out;
+}
+
+.project.unselected:hover {
+    color: #888888;
+}
+
+.project.selected {
+    color: white;
+}

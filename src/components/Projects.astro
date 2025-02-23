@@ -1,14 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
+import Projects from '../components/Projects.tsx';
 
 const projects = await getCollection('projects');
 ---
 
-<section class="m-30">
-    {projects.map((project) => { 
-    const { name } = project.data;
-    return <h2>{name}</h2>
-    })}
-
-</section>
-
+<Projects client:load projects={projects} />
