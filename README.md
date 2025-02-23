@@ -6,6 +6,7 @@ Welcome to my personal website – **javsan.dev**
 Trying to make something interesting. Built with:
 
 - **Astro** – for a fast and modern web experience
+- **React** - needed tsx components
 - **TypeScript** – because type safety is cool
 - **TailwindCSS** – for effortless styling
 
