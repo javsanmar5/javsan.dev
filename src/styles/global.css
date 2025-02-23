@@ -2,4 +2,40 @@
 
 * {
     color: white;
+	font-family: "IBM Plex Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", sans-serif;
 }
+
+:root {
+    --main-orange: #ff6600;
+    --hovered-orange: #ff8811;
+}
+
+h2 {
+    font-size: 5rem;
+    font-weight: bolder;
+    color: var(--main-orange);
+    cursor: pointer;
+}
+
+h2:hover {
+    color: #888888;
+}
+
+::-webkit-scrollbar {
+  width: 6px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b0b0b0; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #909090; 
+}
+
