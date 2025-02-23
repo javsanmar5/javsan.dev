@@ -8,7 +8,7 @@ type Project = {
 
 const Projects = ({ projects }: { projects: Project[] }) => {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-    const [isScrolling, setIsScrolling] = useState(false); // Track manual scrolling
+    const [isScrolling, setIsScrolling] = useState(false);  
     const containerRef = useRef<HTMLDivElement | null>(null);
     const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -79,7 +79,7 @@ const Projects = ({ projects }: { projects: Project[] }) => {
     return (
         <section
         ref={containerRef}
-        className="h-[100vh] overflow-y-auto py-[45vh] ml-20 snap-y snap-mandatory relative"
+        className="h-[90vh] overflow-y-auto py-[45vh] ml-20 snap-y snap-mandatory relative"
         >
         {projects.map((project, index) => (
             <div
