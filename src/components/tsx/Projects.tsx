@@ -19,17 +19,20 @@ const ProjectsComponent = ({ projects }: { projects: Project[] }) => {
             if (!containerRef.current || isScrolling) return;
 
             const container = containerRef.current;
-            const containerCenter = container.scrollTop + container.clientHeight / 2;
+            const containerTop = container.scrollTop;
+            const containerCenter = containerTop + container.clientHeight / 2;
 
             let closestIndex = 0;
             let closestDistance = Infinity;
 
-
             itemRefs.current.forEach((item, index) => {
                 if (!item) return;
 
-                const itemCenter = item.offsetTop + item.clientHeight / 2;
-                const distance = Math.abs(containerCenter - itemCenter);
+                const itemTop = item.offsetTop; // Position relative to the container
+                const itemHeight = item.clientHeight;
+                const itemCenter = itemTop + itemHeight / 2;
+
+                const distance = Math.abs(itemCenter - containerCenter);
 
                 if (distance < closestDistance) {
                     closestDistance = distance;
@@ -143,8 +146,8 @@ const ProjectsComponent = ({ projects }: { projects: Project[] }) => {
         ))}
 
         {isModalOpen && (
-            <div className="fixed inset-0 bg-black/50 flex justify-center items-center modal-background">
-                <div className="bg-[var(--light-gray)] w-[400px] rounded-2xl shadow-2xl overflow-hidden modal">
+            <div className="fixed inset-0 bg-black/50 flex justify-end items-center modal-background">
+                <div className="bg-[var(--light-gray)] rounded-2xl shadow-2xl overflow-hidden modal mr-40">
                     <div className="bg-[var(--dark-gray)] flex items-center px-4 py-2">
                         <div className="flex space-x-2">
                             <button className="bg-red-500 w-4 h-4 rounded-full transition-colors duration-300 hover:bg-red-700" onClick={() => setIsModalOpen(false)}></button>
