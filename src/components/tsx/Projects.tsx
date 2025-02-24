@@ -6,7 +6,7 @@ type Project = {
     };
 };
 
-const Projects = ({ projects }: { projects: Project[] }) => {
+const ProjectsComponent = ({ projects }: { projects: Project[] }) => {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
     const [isScrolling, setIsScrolling] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -167,4 +167,4 @@ const Projects = ({ projects }: { projects: Project[] }) => {
     );
 };
 
-export default Projects;
+export default ProjectsComponent;

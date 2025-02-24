@@ -1,9 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
-import Projects from './Projects.tsx';
-
+import ProjectsComponent from './tsx/Projects.tsx';
 
 const projects = await getCollection('projects');
 ---
 
-<Projects client:load projects={projects} />
+<ProjectsComponent client:load projects={projects} />
