@@ -24,7 +24,6 @@ const Projects = ({ projects }: { projects: Project[] }) => {
             let closestIndex = 0;
             let closestDistance = Infinity;
 
-            console.log(itemRefs);
 
             itemRefs.current.forEach((item, index) => {
                 if (!item) return;
@@ -100,6 +99,9 @@ const Projects = ({ projects }: { projects: Project[] }) => {
                     return nextIndex;
                 });
                 e.preventDefault();
+            } else if (e.key === "Enter") {
+                setIsModalOpen(true);
+                e.preventDefault();
             }
         };
 
@@ -125,7 +127,7 @@ const Projects = ({ projects }: { projects: Project[] }) => {
         tabIndex={0} // Makes the container focusable so it can receive key events
         className="h-[90vh] overflow-y-auto py-[45vh] ml-20 snap-y snap-mandatory relative"
         >
-        {selectedIndex === null ? <p>Click some project or scroll to activate keyword movement...</p>: null}
+        {selectedIndex === null ? <p>Click some project to activate keyword movement...</p>: null}
 
         {projects.map((project, index) => (
             <div
@@ -141,14 +143,22 @@ const Projects = ({ projects }: { projects: Project[] }) => {
         ))}
 
         {isModalOpen && (
-            <div className="fixed w-full h-full top-0 left-0 bg-[rgb(0,0,0,0.5)] flex justify-center items-center"> 
-                <div className="bg-gray-500 h-96 w-96 rounded-xl shadow-xl p-3">
-                    <div className="mb-4"> 
-                        <button className="bg-red-500 rounded-[99999px] w-4 h-4 mx-1" onClick={() => setIsModalOpen(false)}></button>
-                        <button className="bg-yellow-500 rounded-[99999px] w-4 h-4 mx-1" ></button>
-                        <button className="bg-green-500 rounded-[99999px] w-4 h-4 mx-1" ></button>
+            <div className="fixed inset-0 bg-black/50 flex justify-center items-center modal-background">
+                <div className="bg-[var(--light-gray)] w-[400px] rounded-2xl shadow-2xl overflow-hidden modal">
+                    <div className="bg-[var(--dark-gray)] flex items-center px-4 py-2">
+                        <div className="flex space-x-2">
+                            <button className="bg-red-500 w-4 h-4 rounded-full transition-colors duration-300 hover:bg-red-700" onClick={() => setIsModalOpen(false)}></button>
+                            <button className="bg-yellow-500 w-4 h-4 rounded-full transition-colors duration-300 hover:bg-yellow-700"></button>
+                            <button className="bg-green-500 w-4 h-4 rounded-full transition-colors duration-300 hover:bg-green-700"></button>
+                        </div>
                     </div>
-                    <h2> WHATEVER </h2>
+
+                    <div className="p-6">
+                        <h2 className="text-2xl font-semibold text-gray-900">WHATEVER</h2>
+                        <p className="text-gray-700 mt-2 leading-relaxed">
+                            Something a bit larger, something a bit larger, something a bit larger, something a bit larger, something a bit larger.
+                        </p>
+                    </div>
                 </div>
             </div>
         )}
