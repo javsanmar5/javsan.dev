@@ -1,6 +1,6 @@
-# javsan.dev
+# santos.dev
 
-Welcome to my personal website – **javsan.dev**
+Welcome to my personal website – **santos.dev**
 
 ## About
 Trying to make something interesting. Built with:
@@ -14,8 +14,8 @@ Trying to make something interesting. Built with:
 Clone the repo and start the dev server:
 
 ```bash
-git clone https://github.com/javsanmar5/javsan.dev.git
-cd javsan.dev 
+git clone https://github.com/javsanmar5/santos.dev.git
+cd santos.dev 
 npm install # or pnpm/yarn/whatever u like
 npm run dev
 ```
